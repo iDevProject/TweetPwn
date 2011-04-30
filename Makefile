@@ -1,5 +1,6 @@
 FILE=TweetPwn.xm
 NAME=TweetPwn.dylib
+ADDONS=TweetPwn.plist
 CC=g++
 FLAGS=-lobjc -dynamiclib -framework Foundation -framework ScriptingBridge -framework AppKit -o $(NAME)
 all:
@@ -9,3 +10,6 @@ all:
 	@$(CC) $(FLAGS) fix.m
 	@echo "Cleaning up..."
 	@rm -rf fix.m star.h
+	@mkdir Result &>/dev/null || :
+	@cp $(NAME) Result
+	@cp $(ADDONS) Result
